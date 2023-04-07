@@ -83,20 +83,18 @@ class MailService implements ServiceInterface
      */
     public function run()
     {
-        try {
-            $result =  $this->mailer
-                ->compose(['html' => $this->view, 'text' => "text/{$this->view}"], $this->params)
-                ->setFrom($this->from)
-                ->setTo($this->to)
-                ->setSubject($this->subject)
-                ->send();
+        
+        $result =  $this->mailer
+            ->compose(['html' => $this->view, 'text' => "text/{$this->view}"], $this->params)
+            ->setFrom($this->from)
+            ->setTo($this->to)
+            ->setSubject($this->subject)
+            ->send();
 
-            if (!$result) {
-                Yii::error("Email sending failed to '{$this->to}'.", 'mailer');
-            }
-            return $result;
-        } catch (\Exception $e) {
-            Yii::error("Error sending email to '{$this->to}': " . $e->getMessage(), 'mailer');
+        if (!$result) {
+            Yii::error("Email sending failed to '{$this->to}'.", 'mailer');
         }
+        return $result;
+        
     }
 }
