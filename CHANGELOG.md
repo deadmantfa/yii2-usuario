@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.6.2
+
+- Fix: Two Factor Authentication - Filter - Blocks even when two factor authentication is enabled
+
 ## dev
 
 - Enh: possibility to limit the depth of the recursion when getting user ids from roles (mp1509)
